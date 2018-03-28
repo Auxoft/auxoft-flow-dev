@@ -2,5 +2,8 @@
 .DS_Store
 
 # auxoft-flow
+.afconf
 af
+patches/
 bin/auxoft-flow
+
