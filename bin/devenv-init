@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+#
+#
+# branch.master.mergeoptions = --no-ff
+#
+if git config --local --get branch.master.mergeoptions | grep -q 'no-ff'; then
+  echo '##  branch.master.mergeoptions=--no-ff setted'
+else
+  echo '##  set branch.master.mergeoptions=--no-ff'
+  git config --local --unset branch.master.mergeoptions
+  git config --local --add branch.master.mergeoptions '--no-ff'
+fi
+
+
+#
+#
+# auxoft-gitflow
+#
+ROOT_FOLDER=$(pwd)
+
+if [ ! -L "$ROOT_FOLDER/bin/auxoft-flow/bin/hooks/build" ]; then
+  cd ./bin
+  git clone https://bitbucket.org/oluso/auxoft-flow.git auxoft-flow
+else
+  cd ./bin/auxoft-flow
+  git pull
+fi
+cd $ROOT_FOLDER
+
+
+#
+#
+# symlink for af hooks
+#
+ln -s $ROOT_FOLDER/bin/auxoft-flow-hooks/run               $ROOT_FOLDER/bin/auxoft-flow/bin/hooks/run					1> /dev/null 2> /dev/null
+ln -s $ROOT_FOLDER/bin/auxoft-flow-hooks/build             $ROOT_FOLDER/bin/auxoft-flow/bin/hooks/build                 1> /dev/null 2> /dev/null
+ln -s $ROOT_FOLDER/bin/auxoft-flow-hooks/build-check       $ROOT_FOLDER/bin/auxoft-flow/bin/hooks/build-check           1> /dev/null 2> /dev/null
+ln -s $ROOT_FOLDER/bin/auxoft-flow-hooks/version-get       $ROOT_FOLDER/bin/auxoft-flow/bin/hooks/version-get           1> /dev/null 2> /dev/null
+ln -s $ROOT_FOLDER/bin/auxoft-flow-hooks/version-set       $ROOT_FOLDER/bin/auxoft-flow/bin/hooks/version-set           1> /dev/null 2> /dev/null
+ln -s $ROOT_FOLDER/bin/auxoft-flow-hooks/apply-ignorelist  $ROOT_FOLDER/bin/auxoft-flow/bin/hooks/apply-ignorelist      1> /dev/null 2> /dev/null
