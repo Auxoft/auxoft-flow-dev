@@ -20,11 +20,11 @@
 . "$(dirname $(readlink $0))/../auxoft-flow/bin/bash_colors/bash_colors.sh"
 
 
-clr_cyan "***  build with:"
-clr_cyan "***    short_version - $1"
-clr_cyan "***    version_name - $2"
-clr_cyan "***    build_type - $3"
-clr_cyan "***    full_version - $4"
+clr_cyan " ***  build with:"
+clr_cyan " ***    short_version - $1"
+clr_cyan " ***    version_name - $2"
+clr_cyan " ***    build_type - $3"
+clr_cyan " ***    full_version - $4"
 
 
 exit 0
