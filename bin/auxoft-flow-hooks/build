@@ -17,14 +17,14 @@
 #   four param    - <full_version> = a.b.c.d[-sufix][+version_name]      0.2.30.0-sp29+beta, 0.3.1+beta, 0.2.26.9-nb26.9+beta
 
 
-echo $(dirname $(readlink $0))
+. "$(dirname $(readlink $0))/../auxoft-flow/bin/bash_colors/bash_colors.sh"
 
 
-echo "***  build with:"
-echo "***    short_version - $1"
-echo "***    version_name - $2"
-echo "***    build_type - $3"
-echo "***    full_version - $4"
+clr_cyan "***  build with:"
+clr_cyan "***    short_version - $1"
+clr_cyan "***    version_name - $2"
+clr_cyan "***    build_type - $3"
+clr_cyan "***    full_version - $4"
 
 
 exit 0
